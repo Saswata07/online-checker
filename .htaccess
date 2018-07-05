@@ -1,0 +1,2 @@
+#testing admin
+Redirect /admin /index.php/status/admin_login
