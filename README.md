@@ -16,13 +16,13 @@ Mysql 5 an higher.
 
 # Built With
 
-Codeigniter (https://codeigniter.com/).
-Bootstrap (https://getbootstrap.com/).
-W3 css (https://www.w3schools.com/w3css/w3css_downloads.asp).
-Font Awesome (https://fontawesome.com/).
+* Codeigniter (https://codeigniter.com/).
+* Bootstrap (https://getbootstrap.com/).
+* W3 css (https://www.w3schools.com/w3css/w3css_downloads.asp).
+* Font Awesome (https://fontawesome.com/).
 
 # Authors
 
-Saswata Gorai (https://github.com/Saswata07/).
-Sangita Ball.
-Sumon Das.
+* Saswata Gorai (https://github.com/Saswata07/).
+* Sangita Ball.
+* Sumon Das.
