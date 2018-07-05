@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-10">
             <div class="row">
-                <div class="col-lg-12" style="background-color:#639fd417;color:#a6bbcf!important"><span id="online_students" class="w3-green w3-large pull-right w3-badge"></span><label class="w3-text w3-xlrage pull-right">No. of User is Online : &nbsp;</label></div>
+                <div class="col-lg-12" style="background-color:#639fd417;color:#a6bbcf!important"><span id="online_users" class="w3-green w3-large pull-right w3-badge"></span><label class="w3-text w3-xlrage pull-right">No. of User is Online : &nbsp;</label></div>
             </div>
             <hr style="border-color:blue">
             <div class="table-responsive">
@@ -49,7 +49,7 @@
         document.title="Dashboard";
         $("#dashboard").addClass("active");
         $("#dashboard_label").addClass("w3-text-blue");
-        setInterval(function(){user_online();},3000);
+        setInterval(function(){user_online();},3000);       //after 3 secs it keeps refreshing by calling function
     });
     
     function user_online(){
@@ -69,7 +69,7 @@
                    var current_timestamp = Date.parse(current_time)/1000;*/
                    
                    if(j%2 != 0 ){                   //for odd no row
-                       if(response.time_now - response["all"][i].last_activity > 15 )      //it will check if user timeout or not
+                       if(response.time_now - response["all"][i].last_activity > 15 )      //it will check if user timeout or not means user is offline
                        {
                            var class1 = "w3-text-red";
                            if(response["all"][i].active_from == 0){                    //if user never gets online
@@ -84,7 +84,7 @@
                            
                            html += '<tr style="color:#d5fffd;background-color:#639fd417"><td>'+ j + '</td><td>'+ response["all"][i].username + '</td><td>' + live_status +'</td><td>' + response["all"][i].ip + '</td><td>' + last_status + '</td><td><i class="fa fa-circle w3-text-red" aria-hidden="true"></i></td></tr>';
                        }
-                       else{
+                       else{                //if user is online
                            var live_status =  new Date(parseInt(response["all"][i].active_from)*1000);
                            var last_status = "Online";
                            html += '<tr style="color:#d5fffd;background-color:#639fd417"><td>'+ j + '</td><td>'+ response["all"][i].username + '</td><td>' + live_status +'</td><td>' + response["all"][i].ip + '</td><td>' + last_status + '</td><td><i class="fa fa-circle w3-text-green" aria-hidden="true"></i></td></tr>';
@@ -92,6 +92,7 @@
                            k +=1;
                        }
                    }
+                   
                    else{            //for even no row
                      if(response.time_now - response["all"][i].last_activity > 15 )      //it will check if user timeout or not
                        {
@@ -107,7 +108,7 @@
                            
                            html += '<tr style="color:#f9d571;background-color:#0823165c"><td>'+ j + '</td><td>'+ response["all"][i].username + '</td><td>' + live_status +'</td><td>' + response["all"][i].ip + '</td><td>' + last_status + '</td><td><i class="fa fa-circle w3-text-red" aria-hidden="true"></i></td></tr>';
                        }
-                       else{
+                       else{            //if user is online
                            var live_status =  new Date(parseInt(response["all"][i].active_from)*1000);
                            var last_status = "Online";
                            html += '<tr style="color:#f9d571;background-color:#0823165c"><td>'+ j + '</td><td>'+ response["all"][i].username + '</td><td>' + live_status +'</td><td>' + response["all"][i].ip + '</td><td>' + last_status + '</td><td><i class="fa fa-circle w3-text-green" aria-hidden="true"></i></td></tr>';
@@ -117,11 +118,11 @@
                    }
                }
                
-               $("#user_online_list").html(html);
-               $("#online_students").html(k);
+               $("#user_online_list").html(html);       //it will write user list on webpage
+               $("#online_users").html(k);              //it will count total no of user is online
            },
            error:function(){
-               
+               alert("something went wrong");
            }
         });
     }

@@ -1,5 +1,5 @@
 
-      <div class="w3-container" style="top:20%;position:absolute">
+      <div class="w3-container" style="top:20%;position:absolute;width:100%">
 		        <div class="row">
                <div class="col-lg-4">
                    
@@ -17,9 +17,7 @@
 					  
                     </div>
 		   <br>
-		   <!--autocomplete="username" 
-		   autocomplete="current-password" -->
-           <div class="input-group w3-xxlarge">
+		   <div class="input-group w3-xxlarge">
                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
       
                      <input id="password" type="password" class="form-control" minlength="6" name="password" placeholder="Password" required>
@@ -40,7 +38,7 @@
           </html>
           <script type="text/javascript">
                 document.title="Welcome to Admin Login";
-              $("#toggle_pass_admin").click(function(){
+              $("#toggle_pass_admin").click(function(){         //this is for toogle of admin password
                  var pass = document.getElementById("password");
                 if(pass.type == "password"){
                     pass.type='text';

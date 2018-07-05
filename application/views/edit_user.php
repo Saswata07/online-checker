@@ -11,6 +11,7 @@
         <div class="col-lg-1">
             
         </div>
+        <!--Start of add user module-->
         <div class="col-lg-4">
             <div style="background-color:#a9afb34f"><center>
                 <h3 class="w3-text-white" style="padding-top:10px;color:#272982!important">Add User</h3>
@@ -40,6 +41,8 @@
                 </form>
             </div>
         </div>
+        <!--end of add user module-->
+        <!--Start of Display user module-->
         <div class="col-lg-6">
             <div style="background-color:#a9afb34f"><center>
                 <h3 class="w3-text-white" style="padding-top:10px;color:#272982!important">List of Users</h3>
@@ -78,6 +81,7 @@
             </div>
             
         </div>
+        <!--End of Display user module-->
         <div class="col-lg-1">
             
         </div>
@@ -85,6 +89,7 @@
     
 </div>
 </body>
+<!--Start of Edit user pop up module-->
     <div id="edit_modal" class="w3-modal" style="display:none">
         <div class="row">
             <div class="col-lg-4"></div>
@@ -120,7 +125,8 @@
             </div>
         </div>
     </div>
-    
+    <!--End of Edit user pop up module-->
+    <!--Start of Delete user pop up module-->
     <div id="delete_modal" class="w3-modal" style="display:none">
         <div class="row">
             <div class="col-lg-4"></div>
@@ -148,7 +154,7 @@
             </div>
         </div>
     </div>
-
+    <!--End of Delete user pop up module-->
 
 </html>
 <script type="text/javascript">
@@ -156,18 +162,19 @@
         document.title="Update User Details";
         $("#edit_user").addClass("active");
         $("#edit_user_label").addClass("w3-text-blue");
-        display_user_list();
+        display_user_list();            //on page load list of user is displayed..
     });
-    $("#add_user").click(function(e){
+    
+    $("#add_user").click(function(e){       //this function called when add user button is clicked
        e.preventDefault();
        $("#add_user").prop('disabled',true);
        $("#add_spinner").css('display','inline-block');
        $("#msg_add_user").addClass('hiddenspan');
        var form = $("#add_form");
-       if(form[0].checkValidity()){
+       if(form[0].checkValidity()){         //if form validation success
           var data = form.serialize();
           //console.log(data.username);
-          $.ajax({
+          $.ajax({                          //it will add user to server
           type:'ajax',
           method:'post',
           url:"<?=site_url();?>"+"/status/add_user",
@@ -177,6 +184,7 @@
             $("#add_user").prop('disabled',false);
             $("#add_spinner").css('display','none');
             $("#msg_add_user").removeClass('hiddenspan');
+            $("#msg_add_user").removeClass('w3-text-red');
             $("#msg_add_user").addClass('w3-text-green');
             var html1 = $("#add_username").val() + " " + response.result;
             $("#msg_add_user").html(html1);
@@ -185,7 +193,7 @@
             display_user_list();
               
           },
-          error:function(){
+          error:function(){         //if any error occur 
                 $("#add_user").prop('disabled',false);
                 $("#add_spinner").css('display','none');
                 $("#msg_add_user").removeClass('hiddenspan');
@@ -194,7 +202,7 @@
           }
        });
        }
-       else{
+       else{                    //if form validation success
            //console.log($("#msg_add_user"));
            $("#add_user").prop('disabled',false);
             $("#add_spinner").css('display','none');
@@ -206,7 +214,7 @@
        }
     });
     
-    function display_user_list(){
+    function display_user_list(){       //it will display the user list
         $.ajax({
             type:'ajax',
             method:'post',
@@ -253,7 +261,7 @@
         });
     }
     
-    function edit(del){
+    function edit(del){         //edit modal is called
         //console.log(del);
         $("#edit_modal").css('display','block');
         $("#edit_username").val(del);
@@ -261,14 +269,14 @@
         $("#msg_edit_user").addClass("hiddenspan");
     }
     
-    function del(del){
+    function del(del){          //delete modal is called
         //console.log(del);
         $("#delete_modal").css('display','block');
         $("#delete_username").val(del);
         $("#meg_del_user").addClass("hiddenspan");
     }
     
-    $("#edit_btn").click(function(e){
+    $("#edit_btn").click(function(e){       //edit function
         e.preventDefault();
        $("#edit_btn").prop('disabled',true);
        $("#edit_spinner").css('display','inline-block');
@@ -309,7 +317,7 @@
        }
     });
     
-    $("#delete_user").click(function(e){
+    $("#delete_user").click(function(e){        //Delete function
        e.preventDefault();
        $("#delete_user").prop('disabled',true);
        $("#meg_del_user").addClass("hiddenspan");

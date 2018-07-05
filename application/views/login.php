@@ -1,5 +1,5 @@
 
-      <div class="w3-container" style="top:25%;position:absolute">
+      <div class="w3-container" style="top:25%;position:absolute;width:100%">
 		        <div class="row">
                <div class="col-lg-4">
                    
@@ -18,9 +18,7 @@
 					  
                     </div>
 		   <br>
-		   <!--autocomplete="username" 
-		   autocomplete="current-password" -->
-           <div class="input-group w3-xxlarge">
+		  <div class="input-group w3-xxlarge">
                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
       
                      <input id="password" type="password" class="form-control " name="password" placeholder="Password" minlength="6" title="Enter valid password for Log in" required>
@@ -41,30 +39,31 @@
         <script type="text/javascript">
             $(function(){
                document.title="Welcome to Online Checker.."; 
-               browser_detection();
-               //var flag = setInterval(function(){browser_online();console.log(flag);},1000);
+               browser_detection(); //calling to function in page loading
                
             });
-            function browser_detection(){
+            function browser_detection(){       //this is function for browser detection currently no use
                 var useragent = navigator.userAgent;
-                //alert(useragent);
                 if(useragent.search('Windows')>=0 && useragent.search('Phone') >= 0){
-                    alert("Windows Phone");
+                    //alert("Windows Phone");
+                }
+                else if(useragent.search('Macintosh')>=0){
+                    //alert("Mac Os Safari");
                 }
                 else if(useragent.search('Windows')>=0){
-                    alert("Windows");
+                    //alert("Windows");
                 }
                 else if (useragent.search('Android')>=0){
-                    alert("Mobile");
+                    //alert("Mobile");
                 }
                 else if (useragent.search('iPhone')>=0){
-                    alert("iPhone");
+                    //alert("iPhone");
                 }
                 else{
                      
                 }
             }
-            $("#toggle_pass_user").click(function(){
+            $("#toggle_pass_user").click(function(){        //this is for password toogle
                  var pass = document.getElementById("password");
                 if(pass.type == "password"){
                     pass.type='text';

@@ -23,7 +23,7 @@
             <div class="col-lg-3">
             </div>
             <div class="col-lg-6">
-                <p><label id="online_browser" class="w3-large">Wait 3 sec....</label>&emsp;<label class="w3-text-green"></label></p>
+                <p><label id="online_browser" class="w3-large">Wait .....</label>&emsp;<label class="w3-text-green"></label></p>
                 <div id="if_offline" class="hiddenspan"><p><label class="w3-large">You Logged in at :</label>&emsp;<label id="loggedin_time" class="w3-text-green"></label></p>
                 <p><label class="w3-large">IP address :</label>&emsp;<label id="user_ip" class="w3-text-green"></label></p>
                 <!--<p><label class="w3-large">Last Activity Time :</label>&emsp;<label id="last_activity" class="w3-text-green"></label></p>--></div>
@@ -41,12 +41,12 @@
         setInterval(function(){update_time();},3000);
     });
     
-    function update_time(){
+    function update_time(){                     //this function first check if browser is online or not. and do function according to that...
         var username = $("#user").val();
         var log_in_time = $("#logged_time").val();
         var int_logged_in_time = parseInt(log_in_time);
-        if(browser_online() == 1){
-            console.log(browser_online());
+        if(browser_online() == 1){              //if browser is online then it will send username to backend for updating last seen time of user..
+                //console.log(browser_online());
             $("#online_browser").removeClass("w3-text-red");
             $("#online_browser").addClass("w3-text-green");
             $("#online_browser").html("Your Browser is Online.");
@@ -54,7 +54,7 @@
             var current_time_timestamp = Date.parse(current_time)/1000;*/
             var last_last_activity_time = $("#last_last_active_time").val();
             var int_last_last_activity_time = parseInt(last_last_activity_time);
-            console.log(int_last_last_activity_time);
+                //console.log(int_last_last_activity_time);
             
             /*if(int_last_last_activity_time == 0){
                 if(username != ""){
@@ -82,11 +82,11 @@
                         });
                     }
             }*/
-           if(int_last_last_activity_time > 15)
+           if(int_last_last_activity_time > 15)         //if gap between last activity time is greater than 15 then automatically logs out
                 {
                     window.location = "<?=site_url('/status/logout')?>";
                 }
-                else{
+                else{                                   //else comes here
                     if(username != ""){
                         $.ajax({
                            type:'ajax',
@@ -96,7 +96,7 @@
                            url:'<?=site_url()?>' + '/status/active',
                            success:function(response){
                                //console.log("current timestamp ",current_time_timestamp);
-                               console.log("last activity timestamp ",response.time);
+                                    //console.log("last activity timestamp ",response.time);
                                //console.log("last last activity timestamp ",la);
                                $("#if_offline").removeClass("hiddenspan");
                                var logged_time = new Date(int_logged_in_time*1000);
@@ -113,8 +113,8 @@
                     }
                 }
             }
-        else{
-            console.log(browser_online());
+        else{                   //if browser is offline then
+                //console.log(browser_online());
             $("#online_browser").removeClass("w3-text-green");
             $("#online_browser").addClass("w3-text-red");
             $("#online_browser").html("Your Browser is Offline. Please try to connect with Internet.");
@@ -122,7 +122,7 @@
         }
     }
     
-    function browser_online(){
+    function browser_online(){              //it will return 1 if browser is online else 0
         var online = navigator.onLine;
         if(online){
             //alert(online);

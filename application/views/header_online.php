@@ -1,3 +1,4 @@
+<!--starting of head for every pages-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,3 +22,4 @@
 </noscript>
 
         </head>
+<!--ending of head for every pages-->

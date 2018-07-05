@@ -1,3 +1,5 @@
+<!--Start of Navigation Part of the admin pages-->
+
 <body style="background-color:;background-image:url(<?=base_url('/resource/background.jpg');?>);">
       <div class="container-fluid">
     <div>
@@ -24,3 +26,5 @@
       </div>
       </div>
      </div>
+     
+     <!--End of Navigation Part of the admin pages-->
