@@ -6,6 +6,10 @@ A online/offline checking website based on ajax and codeigniter with fully funct
 
 Php 7.1 or higher.
 Mysql 5 an higher, phpmyadmin for easy import of database.
+=======
+* Php 7.1 and higher.
+* Mysql 5 and higher.
+>>>>>>> 1c67bd21a8f551787d4d660c9bea57232d4ac80f
 
 # Deployment
 
@@ -22,9 +26,14 @@ Codeigniter (https://codeigniter.com/).
 Bootstrap (https://getbootstrap.com/).
 W3 css (https://www.w3schools.com/w3css/w3css_downloads.asp).
 Font Awesome (https://fontawesome.com/).
+* Codeigniter (https://codeigniter.com/).
+* Bootstrap (https://getbootstrap.com/).
+* W3 css (https://www.w3schools.com/w3css/w3css_downloads.asp).
+* Font Awesome (https://fontawesome.com/).
 
 # Authors
 
+<<<<<<< HEAD
 Saswata Gorai.
 Sangita Ball.
 Sumon Das.
