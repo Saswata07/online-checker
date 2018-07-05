@@ -4,8 +4,8 @@ A online/offline checking website based on ajax and codeigniter with fully funct
 
 # Prerequisites
 
-Php 7.1 or higher.
-Mysql 5 an higher, phpmyadmin for easy import of database.
+* Php 7.1 or higher.
+* Mysql 5 an higher, phpmyadmin for easy import of database.
 
 
 # Deployment
